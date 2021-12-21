@@ -3,4 +3,5 @@
 
 
  # OBJETIVO  
-O objetivo deste projeto e demonstrar como será construído o banco de dados relacional para a vaga da empresa Alpha X. De modo que, o banco de dados foi desenvolvido com base no currículo do candidato Alex. Para tanto, os scripts utilizados foram construídos para o Banco de Dados MySQL. Contudo
+O objetivo deste projeto e demonstrar como será construído o banco de dados relacional para a vaga da empresa Alpha X. De modo que, o banco de dados foi desenvolvido com base no currículo do candidato Alex. Para tanto, os scripts utilizados foram construídos para o Banco de Dados MySQL. Contudo, propõese que o banco seja modelado como segue a imagem abaixo:
+
