@@ -31,4 +31,4 @@ Contudo, o projeto será definido em 5 etapas:
 4-) Criação das querys para responder as perguntas;
 
 ## ETAPA 01
-Ag
+
