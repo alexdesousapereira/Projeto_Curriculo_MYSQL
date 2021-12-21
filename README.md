@@ -18,6 +18,7 @@ Deste modo, a partir do modelo mencionado propõe-se responder as seguintes perg
 
 4-) HABILIDADES DO CANDIDATO COM BASE EM UM NÍVEL DESEJADO.
 
-5-)
+ 
+
 # ETAPAS
 Agora construiremos as etapas de nosso projeto, em que elas serão definidas
