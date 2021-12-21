@@ -18,7 +18,17 @@ Deste modo, a partir do modelo mencionado propõe-se responder as seguintes perg
 
 4-) HABILIDADES DO CANDIDATO COM BASE EM UM NÍVEL DESEJADO.
 
- 
+Contudo, o projeto será definido em 5 etapas:
 
-# ETAPAS
-Agora construiremos as etapas de nosso projeto, em que elas serão definidas
+1-) Construção da estrutura das tabelas;
+
+2-) Construção de Tabela Backup dos dados;
+
+3-) Dicíonário de Dados das Tabelas.
+
+3-) Inserção dos dados nas tabelas;
+
+4-) Criação das querys para responder as perguntas;
+
+## ETAPA 01
+Ag
