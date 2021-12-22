@@ -4,7 +4,7 @@
 
  # OBJETIVO
  ***
-O objetivo deste projeto e demonstrar como será construído o banco de dados relacional para a vaga da empresa Alpha X. De modo que, o banco de dados foi desenvolvido com base no currículo do candidato Alex. Para tanto, os scripts utilizados foram construídos para o Banco de Dados MySQL. Contudo, propõese que o banco seja modelado como segue O  abaixo:
+O objetivo deste projeto e demonstrar como será construído o banco de dados relacional para a vaga da empresa Alpha X. De modo que, o banco de dados foi desenvolvido com base no currículo do candidato Alex. Para tanto, os scripts utilizados foram construídos para o Banco de Dados MySQL. Contudo, propõese que o banco seja modelado como segue os modelos conceitual/lógíco abaixo:
 
 [](https://i.imgur.com/X8pMndU.png)
 
@@ -394,5 +394,113 @@ INSERT INTO EXPERIENCIA_ATIVIDADE VALUES(2,9);
 
 INSERT INTO EXPERIENCIA_ATIVIDADE VALUES(2,10);
 ```
+## ETAPA 06
+Nesta etapa, criaremos as querys para responder as perguntas:
+
+ 1-) NÚMERO DE ATIVIDADES EXERCIDAS DO CANDIDATO EM CADA EMPRESA.
+
+SELECT 
+	EMP.EMPRESA, 
+	COUNT(ATI.ATIVIDADE) AS Total_de_Atividades
+FROM EXPERIENCIA_ATIVIDADE
+	INNER JOIN ATIVIDADES as ATI
+	ON ID_ATIVIDADE = IDATIVIDADE
+	INNER JOIN EXPERIENCIA as EMP
+	ON ID_EXPERIENCIA = IDEXPERIENCIA
+GROUP BY EMP.EMPRESA;
+
+
+| EMPRESA          | Total_de_Atividades |
+| ---              | ---                 |
+| COOPER STRANDARD |                   5 |
+| U.EXPERIENCE     |                   6 |
+
+
+2-)  FORMAS DE CONTATO DO CANDIDATO
+
+SELECT 
+	NOME,
+	TELEFONE,
+	EMAIL,
+	PORTFOLIO,
+	LINKEDIN
+FROM CONTATO
+	RIGHT JOIN CANDIDATO
+	ON IDCANDIDATO = ID_CANDIDATO;
+
+
+| NOME     | TELEFONE    | EMAIL                         | PORTFOLIO                             | LINKEDIN                                            |
+| ---      | ---         | ---                           | ---                                   | ---                                                 |
+| ALEX     | 35992114883 | alexdesousapereiraa@gmail.com | https://github.com/alexdesousapereira | https://www.linkedin.com/in/alex-pereira-14b798169/ |
+
+
+3-)  CURRÍCULO COM AS INFORMAÇÕES NOME, SEXO, IDADE, TELEFONE, EMAIL,EMPRESAS E SEU NÚMERO DE HABILIDADES.
+
+SELECT 
+	NOME,
+	SEXO,
+	IDADE,
+	C.TELEFONE, 
+	C.EMAIL,
+	E.EMPRESA,
+	COUNT(H.HABILIDADE) as TOTAL_DE_HABILIDADES
+FROM CANDIDATO
+	LEFT JOIN CONTATO AS C
+	ON IDCANDIDATO = C.ID_CANDIDATO
+	LEFT JOIN HABILIDADES AS H
+	ON IDCANDIDATO = H.ID_CANDIDATO
+	LEFT JOIN EXPERIENCIA AS E
+	ON IDCANDIDATO = E.ID_CANDIDATO
+GROUP BY NOME, SEXO, IDADE, C.TELEFONE, C.EMAIL, E.EMPRESA;
+
+
+| NOME     | SEXO | IDADE | TELEFONE    | EMAIL                         | EMPRESA          | TOTAL_DE_HABILIDADES |
+| ---      | ---  | ---   | ---         | ---                           | ---              | ---                  |
+
+| ALEX     | M    |    21 | 35992114883 | alexdesousapereiraa@gmail.com | COOPER STRANDARD |                    5 |
+| ALEX     | M    |    21 | 35992114883 | alexdesousapereiraa@gmail.com | U.EXPERIENCE     |                    5 |
+
+
+4-) QUERY QUE TRAGA AS HABILIDADES DO CANDIDATO COM BASE EM UM NÍVEL DESEJADO.
+
+PARA FAZER ISTO, IREMOS CRIAR UMA PROCEDURE
+
+DELIMITER $
+
+CREATE PROCEDURE NIVEL_HABILIDADE(P_NIVEL ENUM('BÁSICO', 'INTERMEDIÁRIO', 'AVANÇADO'))
+
+BEGIN 
+	
+	SELECT HABILIDADE
+	FROM HABILIDADES WHERE NIVEL = P_NIVEL;
+
+END
+$
+
+DELIMITER ;
+
+CALL NIVEL_HABILIDADE('BÁSICO');
+
+| HABILIDADE |
+| ---        |
+| R          |
+| Python     |
+
+
+CALL NIVEL_HABILIDADE('INTERMEDIÁRIO');
+
+
+| HABILIDADE              |
+| ---                     |
+| Criação de Dashboards   |
+| Pentaho                 |
+
+
+CALL NIVEL_HABILIDADE('AVANÇADO');
+
+
+| HABILIDADE |
+| ---        |
+| Excel      |
 
 
