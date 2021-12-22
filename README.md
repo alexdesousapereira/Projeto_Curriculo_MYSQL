@@ -258,9 +258,9 @@ MOSTRANDO O DICIONÁRIO DE DADOS
 ```
 SHOW DATABASES;
 ```
-+--------------------+
+| DATABASES          |
+| ---                |
 | Database           |
-+--------------------+
 | information_schema |
 | backup             |
 | curriculo          |
@@ -269,7 +269,7 @@ SHOW DATABASES;
 | sakila             |
 | sys                |
 | world              |
-+--------------------+
+
 ```
 USE INFORMATION_SCHEMA;
 
@@ -286,9 +286,9 @@ SELECT CONSTRAINT_SCHEMA AS "BANCO",
 FROM TABLE_CONSTRAINTS
 	WHERE CONSTRAINT_SCHEMA = 'CURRICULO';
 ```
-+-----------+-----------------------+-----------------------+-------------+
+
 | BANCO     | TABELA                | NOME REGRA            | TIPO        |
-+-----------+-----------------------+-----------------------+-------------+
+| ---       | ---                   | ---                   | ---         |
 | curriculo | atividades            | PRIMARY               | PRIMARY KEY |
 | curriculo | candidato             | PRIMARY               | PRIMARY KEY |
 | curriculo | contato               | PRIMARY               | PRIMARY KEY |
@@ -304,4 +304,4 @@ FROM TABLE_CONSTRAINTS
 | curriculo | experiencia_atividade | FK_ATIVIDADE          | FOREIGN KEY |
 | curriculo | experiencia_atividade | FK_EXPERIENCIA        | FOREIGN KEY |
 | curriculo | habilidades           | PRIMARY               | PRIMARY KEY |
-+-----------+-----------------------+-----------------------+-------------+
+
