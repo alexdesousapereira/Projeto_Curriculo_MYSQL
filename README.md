@@ -451,8 +451,8 @@ FROM CANDIDATO
 	ON IDCANDIDATO = E.ID_CANDIDATO
 GROUP BY NOME, SEXO, IDADE, C.TELEFONE, C.EMAIL, E.EMPRESA;
 ```
-| NOME     | SEXO | IDADE | TELEFONE    | EMAIL                         | EMPRESA          | TOTAL_DE_HABILIDADES |
-| ---      | ---  | ---   | ---         | ---                           | ---              | ---                  |
+| NOME     | SEXO | IDADE | TELEFONE    | EMAIL                         | EMPRESA                             | TOTAL_DE_HABILIDADES |
+| ---      | ---  | ---   | ---         | ---                           | ---                                 | ---                  |
 
 | ALEX     | M    |    21 | 35992114883 | alexdesousapereiraa@gmail.com | COOPER STRANDARD |                    5 |
 | ALEX     | M    |    21 | 35992114883 | alexdesousapereiraa@gmail.com | U.EXPERIENCE     |                    5 |
