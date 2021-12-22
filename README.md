@@ -10,13 +10,13 @@ O objetivo deste projeto e demonstrar como será construído o banco de dados re
 
 Deste modo, a partir do modelo mencionado propõe-se responder as seguintes perguntas:
 
-1-) NÚMERO DE ATIVIDADES EXERCIDAS DO CANDIDATO EM CADA EMPRESA;
+1-) Número de atividades exercidas do candidato em cada empresa;
 
-2-) FORMAS DE CONTATO DO CANDIDATO;
+2-) Formas de contato do candidato;
 
-3-) CURRÍCULO COM AS INFORMAÇÕES NOME, SEXO, IDADE, TELEFONE, EMAIL,EMPRESAS E SEU NÚMERO DE HABILIDADES;
+3-) Currículo com as informações nome, sexo, idade, telefone, e-mail, empresas e seu número de habilidades;
 
-4-) HABILIDADES DO CANDIDATO COM BASE EM UM NÍVEL DESEJADO.
+4-) Habilidades do candidato com base em um nível desejado.
 
 Contudo, o projeto será definido em 6 etapas:
 
