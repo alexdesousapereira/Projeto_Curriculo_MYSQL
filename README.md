@@ -247,4 +247,56 @@ DELIMITER ;
 ```
 ## ETAPA 04
 ***
-    Nesta quarta etapa iremos
+Nesta quarta etapa, iremos criar um dicionário de dados com a finalidade de demonstrar como se comportam os campos de nossas tabelas.
+
+MOSTRANDO O DICIONÁRIO DE DADOS
+```
+SHOW DATABASES;
+```
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| backup             |
+| curriculo          |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+```
+USE INFORMATION_SCHEMA;
+
+STATUS; 
+
+SHOW TABLES;
+
+DESC TABLE_CONSTRAINTS;
+
+SELECT CONSTRAINT_SCHEMA AS "BANCO",
+	   TABLE_NAME AS "TABELA",
+	   CONSTRAINT_NAME AS "NOME REGRA",
+	   CONSTRAINT_TYPE AS "TIPO"
+FROM TABLE_CONSTRAINTS
+	WHERE CONSTRAINT_SCHEMA = 'CURRICULO';
+```
++-----------+-----------------------+-----------------------+-------------+
+| BANCO     | TABELA                | NOME REGRA            | TIPO        |
++-----------+-----------------------+-----------------------+-------------+
+| curriculo | atividades            | PRIMARY               | PRIMARY KEY |
+| curriculo | candidato             | PRIMARY               | PRIMARY KEY |
+| curriculo | contato               | PRIMARY               | PRIMARY KEY |
+| curriculo | contato               | ID_CANDIDATO          | UNIQUE      |
+| curriculo | contato               | FK_CONTATO_CANDIDATO  | FOREIGN KEY |
+| curriculo | educacao              | PRIMARY               | PRIMARY KEY |
+| curriculo | educacao              | FK_EDUCACAO_CANDITATO | FOREIGN KEY |
+| curriculo | endereco              | PRIMARY               | PRIMARY KEY |
+| curriculo | endereco              | ID_CANDIDATO          | UNIQUE      |
+| curriculo | endereco              | FK_ENDERECO_CANDIDATO | FOREIGN KEY |
+| curriculo | experiencia           | PRIMARY               | PRIMARY KEY |
+| curriculo | experiencia_atividade | PRIMARY               | PRIMARY KEY |
+| curriculo | experiencia_atividade | FK_ATIVIDADE          | FOREIGN KEY |
+| curriculo | experiencia_atividade | FK_EXPERIENCIA        | FOREIGN KEY |
+| curriculo | habilidades           | PRIMARY               | PRIMARY KEY |
++-----------+-----------------------+-----------------------+-------------+
