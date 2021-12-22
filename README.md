@@ -398,7 +398,7 @@ INSERT INTO EXPERIENCIA_ATIVIDADE VALUES(2,10);
 Nesta etapa, criaremos as querys para responder as perguntas:
 
  1-) NÚMERO DE ATIVIDADES EXERCIDAS DO CANDIDATO EM CADA EMPRESA.
-
+```
 SELECT 
 	EMP.EMPRESA, 
 	COUNT(ATI.ATIVIDADE) AS Total_de_Atividades
@@ -408,8 +408,7 @@ FROM EXPERIENCIA_ATIVIDADE
 	INNER JOIN EXPERIENCIA as EMP
 	ON ID_EXPERIENCIA = IDEXPERIENCIA
 GROUP BY EMP.EMPRESA;
-
-
+```
 | EMPRESA          | Total_de_Atividades |
 | ---              | ---                 |
 | COOPER STRANDARD |                   5 |
@@ -417,7 +416,7 @@ GROUP BY EMP.EMPRESA;
 
 
 2-)  FORMAS DE CONTATO DO CANDIDATO
-
+```
 SELECT 
 	NOME,
 	TELEFONE,
@@ -427,15 +426,14 @@ SELECT
 FROM CONTATO
 	RIGHT JOIN CANDIDATO
 	ON IDCANDIDATO = ID_CANDIDATO;
-
-
-| NOME     | TELEFONE    | EMAIL                         | PORTFOLIO                             | LINKEDIN                                            |
-| ---      | ---         | ---                           | ---                                   | ---                                                 |
+```
+| NOME     | TELEFONE    | EMAIL                         | PORTFOLIO                             | LINKEDIN                                |
+| ---      | ---         | ---                           | ---                                   | ---                                     |
 | ALEX     | 35992114883 | alexdesousapereiraa@gmail.com | https://github.com/alexdesousapereira | https://www.linkedin.com/in/alex-pereira-14b798169/ |
 
 
 3-)  CURRÍCULO COM AS INFORMAÇÕES NOME, SEXO, IDADE, TELEFONE, EMAIL,EMPRESAS E SEU NÚMERO DE HABILIDADES.
-
+```
 SELECT 
 	NOME,
 	SEXO,
@@ -452,8 +450,7 @@ FROM CANDIDATO
 	LEFT JOIN EXPERIENCIA AS E
 	ON IDCANDIDATO = E.ID_CANDIDATO
 GROUP BY NOME, SEXO, IDADE, C.TELEFONE, C.EMAIL, E.EMPRESA;
-
-
+```
 | NOME     | SEXO | IDADE | TELEFONE    | EMAIL                         | EMPRESA          | TOTAL_DE_HABILIDADES |
 | ---      | ---  | ---   | ---         | ---                           | ---              | ---                  |
 
@@ -463,8 +460,8 @@ GROUP BY NOME, SEXO, IDADE, C.TELEFONE, C.EMAIL, E.EMPRESA;
 
 4-) QUERY QUE TRAGA AS HABILIDADES DO CANDIDATO COM BASE EM UM NÍVEL DESEJADO.
 
-PARA FAZER ISTO, IREMOS CRIAR UMA PROCEDURE
-
+PARA FAZER ISTO, IREMOS CRIAR UMA PROCEDURE:
+```
 DELIMITER $
 
 CREATE PROCEDURE NIVEL_HABILIDADE(P_NIVEL ENUM('BÁSICO', 'INTERMEDIÁRIO', 'AVANÇADO'))
@@ -478,29 +475,33 @@ END
 $
 
 DELIMITER ;
-
+```
+HABILIDADES DE NÍVEL BÁSICO:
+```
 CALL NIVEL_HABILIDADE('BÁSICO');
-
+```
 | HABILIDADE |
 | ---        |
 | R          |
 | Python     |
 
-
+HABILIDADES DE NÍVEL INTERMEDIÁRIO:
+```
 CALL NIVEL_HABILIDADE('INTERMEDIÁRIO');
-
+```
 
 | HABILIDADE              |
 | ---                     |
 | Criação de Dashboards   |
 | Pentaho                 |
 
+HABILIDADES DE NÍVEL AVANÇADO:
 
+```
 CALL NIVEL_HABILIDADE('AVANÇADO');
-
+```
 
 | HABILIDADE |
 | ---        |
 | Excel      |
-
 
