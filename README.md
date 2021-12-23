@@ -4,9 +4,9 @@
 
  # OBJETIVO
  ***
-O objetivo deste projeto e demonstrar como será construído o banco de dados relacional para a vaga na empresa Alpha X. De modo que, o banco de dados foi desenvolvido com base no currículo do candidato Alex. Para tanto, os scripts utilizados foram construídos voltados a ao Banco de Dados MySQL. Contudo, propõe-se que o banco seja modelado como segue o modelo conceitual/lógíco abaixo:
+O objetivo deste projeto e demonstrar como será construído o banco de dados relacional para a vaga na empresa Alpha X. De modo que, o banco de dados foi desenvolvido com base no currículo do candidato Alex. Para tanto, os scripts utilizados foram construídos voltados a ao Banco de Dados MySQL. Contudo, propõe-se que o banco seja modelado como segue o modelo conceitual abaixo:
 
-[](https://i.imgur.com/X8pMndU.png)
+![modelo conceitual](https://i.imgur.com/iw9JnMn.png)
 
 Deste modo, a partir do modelo mencionado propõe-se responder as seguintes perguntas:
 
@@ -504,3 +504,13 @@ CALL NIVEL_HABILIDADE('AVANÇADO');
 | ---        |
 | Excel      |
 
+# Direitos de Uso
+***
+Este repositório têm como objetivo apresentar o projeto de **currículo** utilizando da linguagem SQL. Então, dentro deste repositório você pode utilizar deste conteúdo sem nenhuma restrição contanto que não me responsebilize por eventuais causas ou danos morais perante minha responsabilidade.	
+
+Exigido | Permitido | Proibido
+:---: | :---: | :---:
+Aviso de licença e direitos autorais | Uso comercial | Responsabilidade Assegurada
+ || Modificação ||	
+ || Distribuição ||	
+ || Sublicenciamento || 	
